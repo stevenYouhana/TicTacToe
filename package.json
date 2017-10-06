@@ -1,0 +1,11 @@
+{
+  "name": "Tick Tack Toe",
+  "version": "1.0.0",
+  "description": "This is a good game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steven and MP",
+  "license": "ISC"
+}
