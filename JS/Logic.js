@@ -11,19 +11,28 @@ squares = {one: '',
            five: '',
            six: '',
            seven: '',
-           eight: ''
+           eight: '',
+           nine: ''
            };
 
 var returnSymbol = function(){
+  // if(lastClick == x){
+  //   lastClick = o;
+  // }
+  // else{
+  //   lastClick = x;
+  // }
+  return lastClick;
+}
+var invertSymbol = function(lastClick){
   if(lastClick == x){
     lastClick = o;
   }
   else{
-    lastClick = "X";
+    lastClick = o;
   }
   return lastClick;
 }
-
 var freezSqr = function(id){
   if(document.getElementById(id) != ''){
     document.getElementById(id) = document.getElementById(id);
@@ -36,23 +45,23 @@ var work = function(id){
     if(sqrValue == '-'){
       document.getElementById(id).innerHTML = returnSymbol();
       switch(id){
-        case 1: squares.one = [lastClick];
+        case 1: squares.one = invertSymbol;
         break;
-        case 2: squares.two = [lastClick];
+        case 2: squares.two = invertSymbol;
         break;
-        case 3: squares.three = [lastClick];
+        case 3: squares.three = invertSymbol;
         break;
-        case 4: squares.four = [lastClick];
+        case 4: squares.four = invertSymbol;
         break;
-        case 5: squares.five = [lastClick];
+        case 5: squares.five = invertSymbol;
         break;
-        case 6: squares.six = [lastClick];
+        case 6: squares.six = invertSymbol;
         break;
-        case 7: squares.seven = [lastClick];
+        case 7: squares.seven = invertSymbol;
         break;
-        case 8: squares.eight = [lastClick];
+        case 8: squares.eight = invertSymbol;
         break;
-        case 9: squares.nine = [lastClick];
+        case 9: squares.nine = invertSymbol;
         break;
       }
       document.getElementById(id).attributes[2].value = lastClick;
@@ -61,9 +70,42 @@ var work = function(id){
     else{
        document.getElementById(id).attributes[2].value = sqrValue;
     }
+    checkSquares(squares);
+    computerPlay(chooseSquare());
   }
 }
+var computerPlay = function(playSquare){
+    switch(playSquare){
+      case "one": squares.one = lastClick;
+        document.getElementById("1").innerHTML = invertSymbol();
+      break;
+      case "two": squares.two = lastClick;
+        document.getElementById("2").innerHTML = invertSymbol();
+      break;
+      case "three": squares.three = lastClick;
+        document.getElementById("3").innerHTML = invertSymbol();
+      break;
+      case "four": squares.four = lastClick;
+        document.getElementById("4").innerHTML = invertSymbol();
+      break;
+      case "five": squares.five = lastClick;
+        document.getElementById("5").innerHTML = invertSymbol();
+      break;
+      case "six": squares.six = lastClick;
+        document.getElementById("6").innerHTML = invertSymbol();
+      break;
+      case "seven": squares.seven = lastClick;
+        document.getElementById("7").innerHTML = invertSymbol();
+      break;
+      case "eight": squares.eight = lastClick;
+        document.getElementById("8").innerHTML = invertSymbol();
+      break;
+      case "nine": squares.nine = lastClick;
+        document.getElementById("9").innerHTML = invertSymbol();
+      break;
 
+  }
+}
 var winCase = function(){
   if((squares.one==x & squares.two==x & squares.three==x)||
        squares.one==o & squares.two==o & squares.three==o){
@@ -113,7 +155,6 @@ var winCase = function(){
   gameOver();
   //3 5 7 WIN
   }
-  console.log("TEST: "+squares.one+" "+squares.two+" "+squares.three);
 }
 
 var showWinningSqrs = function(id1, id2, id3){
