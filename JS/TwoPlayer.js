@@ -1,7 +1,7 @@
 
  var freeSquares = ['','','','','','','','',''];
+
   var checkSquares = function(square){
-    freeSquares = ['','','','','','','','',''];
     var i = 0;
     for(var o in square){
       if(square[o] == ''){
@@ -9,13 +9,14 @@
         i++;
       }
     }
-    console.log(freeSquares);
+    console.log("FREE SQ: "+freeSquares);
   }
+
   var max = 7;
+  
   var chooseSquare = function(){
   var chosen = Math.floor(Math.random()*(max-0));
   max--;
-
   if(max < 0){
     console.log("limit")
       return "limit!";
